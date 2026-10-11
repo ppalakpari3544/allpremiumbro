@@ -116,6 +116,8 @@
   .check-out.warn { background: #ffe0a3; }
   .check-out.bad { background: #ffd0d0; }
   .check-out strong { display: block; font-size: 14px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .4px; }
+  .check-out .pmeta { display: block; font-family: var(--font-mono); font-size: 11px; margin-top: 7px; padding-top: 7px; border-top: 2px solid var(--black); opacity: .78; }
+  .check-out .proceed { display: inline-block; margin-top: 10px; }
 
   /* ---------- Sections ---------- */
   section { padding: 62px 0; }
@@ -249,6 +251,16 @@
     section { padding: 46px 0; }
     .hero { padding: 42px 0 40px; }
     .price { font-size: 46px; }
+    .hero h1 { font-size: clamp(32px, 8.6vw, 44px); }
+    .badge-line { max-width: 100%; white-space: normal; text-align: left; }
+    .check-field { flex-wrap: wrap; }
+    .check-field button { flex: 1 1 100%; }
+  }
+
+  @media (max-width: 420px) {
+    .wrap { padding: 0 16px; }
+    .hero h1 em { padding: 0 6px; }
+    .check-out { padding: 12px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -308,13 +320,13 @@
 
     <div class="hero-card">
       <h3>Check gift eligibility</h3>
-      <p class="sub">Enter your username to see if your account can receive the gift right now.</p>
+      <p class="sub">Enter your X username to see if your account can receive a gift right now.</p>
       <div class="check-field">
-        <input type="text" id="eligInput" placeholder="@yourhandle" autocomplete="off" spellcheck="false" aria-label="Your username" />
+        <input type="text" id="eligInput" placeholder="@yourhandle" autocomplete="off" spellcheck="false" aria-label="Your X username" />
         <button type="button" class="btn btn-cyan btn-sm" id="eligBtn">Check</button>
       </div>
       <div class="check-out" id="eligOut" role="status" aria-live="polite"></div>
-      <p class="sub" style="margin-top:14px;margin-bottom:0;">Tip: use the username from your profile link, not your display name.</p>
+      <p class="sub" style="margin-top:14px;margin-bottom:0;">Tip: use the username from your profile URL (x.com/username), not your display name.</p>
     </div>
   </div>
 </header>
@@ -523,7 +535,7 @@
         <span class="note-n" style="background:var(--cyan);">2</span>
         <div>
           <h3>Not eligible? Try again in a few days</h3>
-          <p>If the check says your account is not eligible yet, message us again after 1 to 3 days. Eligibility usually opens up on its own.</p>
+          <p>If we tell you your account is not eligible yet, message us again after 1 to 3 days. Eligibility usually opens up on its own.</p>
         </div>
       </div>
       <div class="note">
@@ -640,7 +652,7 @@
       </details>
       <details>
         <summary>Is my account eligible for a gift?</summary>
-        <p>Your account must not be verified and your current subscription period must have expired. An account that is already verified, or still inside an active subscription period, cannot receive the gift. No refund applies in that case, so please check first with the eligibility tool at the top of this page.</p>
+        <p>Your account must not be verified and your current subscription period must have expired. An account that is already verified, or still inside an active subscription period, cannot receive the gift. No refund applies in that case, so please send us your profile link in chat first and we will confirm before you pay.</p>
       </details>
       <details>
         <summary>Why is it cheaper than the official price?</summary>
@@ -718,48 +730,109 @@
 (function () {
   "use strict";
 
-  // ---------- Eligibility checker ----------
+  // ---------- Gift eligibility checker ----------
+  // Checks live status against the public gift-eligibility endpoint.
+  var ENDPOINT = "https://d3al.xyz/api/gift-eligibility";
+  var TG = "https://t.me/Habib_XYZ8";
+
   var input = document.getElementById('eligInput');
   var btn = document.getElementById('eligBtn');
   var out = document.getElementById('eligOut');
+  var busy = false;
 
-  // Deterministic stand-in for a live eligibility API.
-  // The real check happens in the Telegram chat.
-  function pseudoEligible(name) {
-    var sum = 0;
-    for (var i = 0; i < name.length; i++) { sum += name.charCodeAt(i); }
-    return sum % 5 !== 0;
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
   }
 
-  function cleanHandle(v) {
-    return (v || '').trim().replace(/^@+/, '');
+  function show(kind, title, body, foot, htmlMeta) {
+    out.className = 'check-out show ' + kind;
+    out.innerHTML = '<strong>' + esc(title) + '</strong>' + esc(body) + (htmlMeta || '') + (foot || '');
+  }
+
+  function tgOrder(handle, label) {
+    var msg = "Hi! I want X Premium. My profile: x.com/" + handle + " (" + label + ")";
+    return '<a class="btn btn-black btn-sm proceed" href="' + TG + '?text=' +
+      encodeURIComponent(msg) + '" target="_blank" rel="noopener noreferrer">Continue on Telegram</a>';
+  }
+
+  function clean(v) {
+    var s = (v || '').trim();
+    s = s.replace(/^(https?:\/\/)?(www\.|mobile\.)?(x|twitter)\.com\//i, '');
+    s = s.replace(/[?#].*$/, '');
+    s = s.replace(/\/(gift-premium|premium|following|followers|media|likes|with_replies|photo|header).*$/i, '');
+    s = s.replace(/\/+$/, '');
+    s = s.replace(/^@+/, '');
+    return s;
   }
 
   function runCheck() {
-    var raw = (input.value || '').trim();
-    var handle = cleanHandle(raw);
+    if (busy) { return; }
+    var handle = clean(input.value);
     out.className = 'check-out';
 
     if (!handle) {
-      out.classList.add('show', 'warn');
-      out.innerHTML = '<strong>Enter a username</strong>Type the username from your profile link, for example yourhandle, then check again.';
+      show('warn', 'Enter a username', 'Type the username from your profile link, for example yourhandle, then check again.');
+      return;
+    }
+    if (!/^[A-Za-z0-9_]{1,15}$/.test(handle)) {
+      show('bad', 'That does not look right', 'Username should be letters, numbers or underscore, 15 characters maximum. Leave out the @ and the display name.');
       return;
     }
 
-    var ok = /^[A-Za-z0-9_]{1,15}$/.test(handle);
-    if (!ok) {
-      out.classList.add('show', 'bad');
-      out.innerHTML = '<strong>That does not look right</strong>Username should be letters, numbers or underscore, 15 characters maximum. Leave out the @ and the display name.';
-      return;
-    }
+    busy = true;
+    btn.disabled = true;
+    out.className = 'check-out show warn';
+    out.innerHTML = '<strong>Checking @' + esc(handle) + '</strong>Asking X whether this account can receive a gift...';
 
-    if (pseudoEligible(handle.toLowerCase())) {
-      out.classList.add('show', 'ok');
-      out.innerHTML = '<strong>Looks eligible</strong>@' + handle + ' can most likely receive a gift right now. Tap Start an order and send us your profile link to confirm.';
-    } else {
-      out.classList.add('show', 'warn');
-      out.innerHTML = '<strong>Not eligible right now</strong>@' + handle + ' may be verified already, or still inside an active subscription period. Cancel any existing plan first, then message us again in 1 to 3 days.';
-    }
+    fetch(ENDPOINT + '?handle=' + encodeURIComponent(handle), { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var c = (d && d.check) || {};
+        var p = c.profile || {};
+        var reason = c.reason || '';
+        var meta = '';
+        if (p.name) {
+          meta = '<span class="pmeta">' + esc(p.name) +
+            (typeof p.followers === 'number' ? ' · ' + p.followers.toLocaleString('en-US') + ' followers' : '') +
+            (p.isBlueVerified ? ' · currently verified' : '') + '</span>';
+        }
+
+        if (c.status === 'error') {
+          show('bad', 'We could not check that', c.message || 'That account could not be found. Double check the username and try again.');
+          return;
+        }
+        if (reason === 'not_found') {
+          show('bad', 'We could not find that account', 'We could not find @' + handle + '. Double check the username from your profile link, or message us on Telegram.', tgOrder(handle, 'manual check'));
+          return;
+        }
+        if (c.giftEligible) {
+          show('ok', 'Looks eligible', '@' + handle + ' can most likely receive a gift right now. Send us your profile link and we confirm in chat before you pay.',
+            tgOrder(handle, 'eligible'), meta);
+          return;
+        }
+        var msg;
+        if (reason === 'verified_organization') {
+          msg = '@' + handle + ' is an official or organization verified account, so a gift cannot be applied to it.';
+        } else if (reason === 'already_premium_or_verified') {
+          msg = '@' + handle + ' is already verified or still has an active subscription. Cancel it first, then come back in 1 to 3 days.';
+        } else if (reason === 'active_subscription') {
+          msg = '@' + handle + ' still has an active subscription period. Cancel it first, then come back in 1 to 3 days.';
+        } else if (reason === 'gift_blocked') {
+          msg = '@' + handle + ' has gifting blocked on this account right now. Message us and we will look into it manually.';
+        } else {
+          msg = '@' + handle + ' cannot receive a gift right now. ' + (c.message || 'Message us and we will check manually.');
+        }
+        show('warn', 'Not eligible right now', msg, tgOrder(handle, 'not eligible'), meta);
+      })
+      .catch(function () {
+        show('warn', 'Check unavailable', 'We could not reach the checker just now. Send us your profile link on Telegram and we will confirm manually.', tgOrder(handle, 'manual check'));
+      })
+      .then(function () {
+        busy = false;
+        btn.disabled = false;
+      });
   }
 
   if (btn) { btn.addEventListener('click', runCheck); }
