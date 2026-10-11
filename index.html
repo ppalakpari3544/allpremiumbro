@@ -3,438 +3,381 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AllPremiumBro | X Premium and Telegram Premium. Cheap. Done.</title>
-<meta name="description" content="AllPremiumBro | X Premium blue checkmark and Telegram Premium, gifted straight to your own account. Up to 75% below official rates. Order on Telegram." />
-<link rel="canonical" href="https://allpremiumbro.store/" />
-<meta property="og:site_name" content="AllPremiumBro" />
-<meta property="og:title" content="AllPremiumBro | X Premium and Telegram Premium. Cheap. Done." />
-<meta property="og:description" content="Get X Premium or Telegram Premium gifted straight to your own account, up to 75% below official rates. Order on Telegram." />
+<title>AllPremiumBro | X Premium and Telegram Premium, gifted to your account</title>
+<meta name="description" content="X Premium and Telegram Premium gifted straight to your own account. Up to 75% below official rates. Order on Telegram, no wallet address needed on site." />
+<meta property="og:title" content="AllPremiumBro | X Premium and Telegram Premium" />
+<meta property="og:description" content="Gifted straight to your own account. Up to 75% below official rates. Everything handled in Telegram." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://allpremiumbro.store/" />
-<meta name="theme-color" content="#ffd400" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffd400'/%3E%3Cpath d='M8 17l5 5 11-12' fill='none' stroke='%230a0a0a' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
-<meta name="color-scheme" content="light" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
-  /* ===== NEO-BRUTALISM =====
-     Rules from design-system/bluecheckbrutal/MASTER.md:
-     border-radius: 0 · transition: none/instant · font-weight 700-900
-     border: 3px solid #000 · pure colors · visible grid · asymmetric */
-
   :root {
     --black: #0a0a0a;
     --white: #fffdf7;
+    --paper: #f4f1e8;
     --yellow: #ffd400;
     --cyan: #00d5d5;
     --pink: #ff5ca8;
     --green: #4ade80;
     --lime: #c6f24e;
     --purple: #a78bfa;
-
+    --grey: #b8b4ab;
     --border: 3px solid var(--black);
     --shadow: 6px 6px 0 var(--black);
     --shadow-sm: 4px 4px 0 var(--black);
-
     --font: "Space Grotesk", system-ui, sans-serif;
     --font-mono: "Space Mono", ui-monospace, monospace;
     --maxw: 1160px;
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: var(--font);
-    background: var(--white);
+    margin: 0;
+    background: var(--paper);
     color: var(--black);
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 700;
+    font-family: var(--font);
+    font-weight: 500;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    background-image:
-      linear-gradient(var(--black) 1px, transparent 1px),
-      linear-gradient(90deg, var(--black) 1px, transparent 1px);
-    background-size: 64px 64px;
-    background-position: -1px -1px;
-    background-attachment: fixed;
-  }
-  /* grid terlalu berat, redupkan via overlay */
-  body::before {
-    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background: var(--white); opacity: 0.93;
-  }
-  .wrap { width: min(var(--maxw), 92vw); margin-inline: auto; position: relative; z-index: 2; }
-  h1, h2, h3 { font-weight: 700; line-height: 0.98; letter-spacing: -0.03em; text-transform: uppercase; }
-  a { color: inherit; text-decoration: none; }
-
-  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, label:focus-visible {
-    outline: 3px solid var(--cyan); outline-offset: 3px;
   }
 
-  /* ===== NAV ===== */
-  .nav {
-    position: sticky; top: 0; z-index: 60;
-    background: var(--white);
-    border-bottom: var(--border);
-  }
-  .nav-in { display: flex; align-items: center; justify-content: space-between; height: 66px; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -0.03em; text-transform: uppercase; }
-  .brand-mark {
-    width: 34px; height: 34px; background: var(--yellow);
-    border: var(--border); display: grid; place-items: center; flex-shrink: 0;
-    box-shadow: 2px 2px 0 var(--black);
-  }
-  .brand-mark svg { width: 18px; height: 18px; }
-  .nav-links { display: flex; align-items: center; gap: 4px; font-size: 13px; text-transform: uppercase; }
-  .nav-links a { padding: 7px 12px; border: 3px solid transparent; }
-  .nav-links a:hover { border-color: var(--black); background: var(--yellow); }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    font-family: inherit; font-size: 15px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: -0.01em;
-    padding: 12px 22px; border: var(--border); background: var(--white);
-    box-shadow: var(--shadow-sm); cursor: pointer; color: var(--black);
-    transition: none; /* brutalism: instant */
-  }
-  .btn svg { width: 16px; height: 16px; }
-  .btn:hover { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--black); }
-  .btn-yellow { background: var(--yellow); }
-  .btn-cyan { background: var(--cyan); }
-  .btn-pink { background: var(--pink); }
-  .btn-nav { padding: 9px 16px; font-size: 13px; box-shadow: 3px 3px 0 var(--black); }
+  [hidden] { display: none !important; }
 
-  /* ===== HERO ===== */
-  .hero { padding: 72px 0 60px; border-bottom: var(--border); }
-  .marquee {
-    background: var(--black); color: var(--yellow);
-    border-bottom: var(--border);
-    padding: 9px 0; overflow: hidden; white-space: nowrap;
-    font-family: var(--font-mono); font-size: 13px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.08em;
-  }
-  .marquee span { display: inline-block; padding-right: 40px; animation: apb-marquee 28s linear infinite; }
+  h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+  ::selection { background: var(--yellow); color: var(--black); }
+
+  :focus-visible { outline: 3px solid var(--black); outline-offset: 3px; }
+
+  /* ---------- Marquee ---------- */
+  .marquee { background: var(--black); color: var(--white); overflow: hidden; padding: 9px 0; border-bottom: 3px solid var(--black); }
+  .marquee-track { display: flex; white-space: nowrap; width: max-content; }
+  .marquee span { display: inline-block; padding-right: 40px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; animation: apb-marquee 28s linear infinite; }
+  .marquee span b { color: var(--yellow); }
   @keyframes apb-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .tag {
-    display: inline-block; background: var(--cyan); border: var(--border);
-    padding: 7px 15px; font-size: 12.5px; font-weight: 700; text-transform: uppercase;
-    box-shadow: 3px 3px 0 var(--black); margin-bottom: 26px;
-  }
-  .hero h1 { font-size: clamp(2.6rem, 7vw, 5.4rem); max-width: 15ch; }
-  .hero h1 .box {
-    display: inline-block; background: var(--yellow); border: var(--border);
-    padding: 0 12px; box-shadow: 4px 4px 0 var(--black);
-  }
-  .hero h1 .box-pink { background: var(--pink); }
-  .hero .lede {
-    margin-top: 26px; font-size: 17px; font-weight: 500; max-width: 54ch;
-    text-transform: none; border-left: var(--border); padding-left: 16px;
-  }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 
-  .stats {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    border: var(--border); margin-top: 58px; background: var(--black); gap: 3px;
-  }
-  .stat { background: var(--white); padding: 22px 20px; }
-  .stat:nth-child(1) { background: var(--yellow); }
-  .stat:nth-child(2) { background: var(--cyan); }
-  .stat:nth-child(3) { background: var(--pink); }
-  .stat:nth-child(4) { background: var(--lime); }
-  .stat-k { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
-  .stat-v { font-size: 21px; font-weight: 700; letter-spacing: -0.03em; }
+  /* ---------- Nav ---------- */
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 3px solid var(--black); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 9px; font-size: 19px; font-weight: 700; letter-spacing: -0.04em; text-decoration: none; }
+  .logo-mark { width: 30px; height: 30px; background: var(--yellow); border: var(--border); display: grid; place-items: center; box-shadow: 3px 3px 0 var(--black); }
+  .logo-mark svg { width: 17px; height: 17px; }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a { font-size: 14px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: .3px; }
+  .nav-links a:hover { background: var(--yellow); }
+  .nav-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); border: var(--border); padding: 10px 17px; font-size: 13px; font-weight: 700; text-transform: uppercase; text-decoration: none; box-shadow: var(--shadow-sm); }
+  .nav-cta:hover { background: var(--yellow); color: var(--black); }
+  .nav-cta svg { width: 16px; height: 16px; }
 
-  /* ===== SECTION ===== */
-  section { padding: 78px 0; border-bottom: var(--border); }
-  .sec-head { margin-bottom: 44px; max-width: 660px; }
-  .sec-head .kick {
-    display: inline-block; background: var(--black); color: var(--white);
-    font-family: var(--font-mono); font-size: 12px; padding: 5px 12px;
-    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px;
-  }
-  .sec-head h2 { font-size: clamp(1.9rem, 4.4vw, 3.1rem); }
-  .sec-head p { margin-top: 16px; font-size: 16px; font-weight: 500; text-transform: none; }
-  .sec-head.inv .kick { background: var(--yellow); color: var(--black); }
+  /* ---------- Buttons ---------- */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; background: var(--white); color: var(--black); border: var(--border); padding: 14px 24px; font-family: var(--font); font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; text-decoration: none; cursor: pointer; box-shadow: var(--shadow); }
+  .btn:hover { background: var(--yellow); }
+  .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
+  .btn-pink { background: var(--pink); }
+  .btn-pink:hover { background: var(--yellow); }
+  .btn-cyan { background: var(--cyan); }
+  .btn-cyan:hover { background: var(--yellow); }
+  .btn-black { background: var(--black); color: var(--white); }
+  .btn-black:hover { background: var(--yellow); color: var(--black); }
+  .btn-sm { padding: 10px 16px; font-size: 13px; box-shadow: var(--shadow-sm); }
+  .btn.is-disabled-btn { background: #ddd9d0; color: #8a8782; cursor: not-allowed; box-shadow: 3px 3px 0 var(--grey); pointer-events: none; }
 
-  /* ===== PRICING ===== */
-  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
-  .plan {
-    background: var(--white); border: var(--border); padding: 26px 22px;
-    box-shadow: var(--shadow); display: flex; flex-direction: column; position: relative;
-  }
-  .plan:nth-child(1) { transform: rotate(-0.7deg); }
-  .plan:nth-child(3) { transform: rotate(0.7deg); }
-  .plan.featured { background: var(--yellow); transform: rotate(0deg); box-shadow: 8px 8px 0 var(--black); }
-  .plan-flag {
-    position: absolute; top: -16px; left: 20px;
-    background: var(--black); color: var(--yellow); font-size: 11.5px; font-weight: 700;
-    text-transform: uppercase; padding: 5px 12px; letter-spacing: 0.06em;
-  }
+  /* ---------- Hero ---------- */
+  .hero { padding: 62px 0 54px; border-bottom: 3px solid var(--black); }
+  .hero-grid { display: grid; grid-template-columns: 1.25fr .95fr; gap: 44px; align-items: start; }
+  .badge-line { display: inline-flex; align-items: center; gap: 9px; background: var(--lime); border: var(--border); padding: 7px 13px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; box-shadow: 3px 3px 0 var(--black); margin-bottom: 22px; }
+  .badge-dot { width: 9px; height: 9px; background: var(--black); border-radius: 50%; animation: apb-pulse 1.6s infinite; }
+  @keyframes apb-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+  .hero h1 { font-size: clamp(40px, 6.4vw, 74px); letter-spacing: -0.05em; }
+  .hero h1 em { font-style: normal; background: var(--yellow); padding: 0 10px; border: var(--border); display: inline-block; transform: rotate(-1.4deg); }
+  .lede { margin-top: 22px; font-size: 17px; max-width: 560px; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .hero-note { margin-top: 20px; font-family: var(--font-mono); font-size: 12px; }
+  .hero-note b { background: var(--black); color: var(--white); padding: 2px 6px; }
+
+  .hero-card { background: var(--white); border: var(--border); box-shadow: var(--shadow); padding: 22px; }
+  .hero-card h3 { font-size: 15px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+  .hero-card p.sub { font-family: var(--font-mono); font-size: 12px; margin-bottom: 16px; }
+  .check-field { display: flex; gap: 9px; }
+  .check-field input { flex: 1; min-width: 0; border: var(--border); background: var(--paper); padding: 12px 13px; font-family: var(--font-mono); font-size: 14px; font-weight: 700; }
+  .check-field input::placeholder { color: #9d9a92; font-weight: 400; }
+  .check-field button { flex: 0 0 auto; }
+  .check-out { margin-top: 14px; border: var(--border); padding: 13px 14px; font-size: 13px; line-height: 1.5; box-shadow: var(--shadow-sm); display: none; }
+  .check-out.show { display: block; }
+  .check-out.ok { background: var(--lime); }
+  .check-out.warn { background: #ffe0a3; }
+  .check-out.bad { background: #ffd0d0; }
+  .check-out strong { display: block; font-size: 14px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .4px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 62px 0; }
+  .sec-head { max-width: 700px; margin-bottom: 40px; }
+  .sec-head.center { margin-inline: auto; text-align: center; }
+  .kick { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; background: var(--black); color: var(--white); padding: 4px 9px; margin-bottom: 14px; }
+  .sec-head h2 { font-size: clamp(30px, 4.4vw, 48px); }
+  .sec-head p { margin-top: 14px; font-size: 16px; }
+
+  /* ---------- Plans ---------- */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .plan { position: relative; background: var(--white); border: var(--border); box-shadow: var(--shadow); padding: 26px 22px; display: flex; flex-direction: column; }
+  .plan.featured { background: var(--yellow); transform: rotate(-0.7deg); }
+  .plan-flag { position: absolute; top: -15px; left: 20px; background: var(--black); color: var(--white); font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; padding: 5px 10px; }
+  .plan-flag-oos { background: var(--grey); }
   .plan-name { font-size: 22px; font-weight: 700; text-transform: uppercase; }
-  .plan-note { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; margin-top: 2px; }
+  .plan-note { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; margin-top: 2px; }
   .price { margin-top: 18px; font-size: 54px; font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; }
   .price-ask { font-size: 26px; letter-spacing: -0.02em; line-height: 1.15; padding: 10px 0 2px; }
-  .price-row { display: flex; align-items: center; gap: 9px; margin-top: 12px; flex-wrap: wrap; }
+  .price-row { display: flex; align-items: center; gap: 10px; margin-top: 9px; flex-wrap: wrap; }
   .price-old { font-family: var(--font-mono); font-size: 14px; text-decoration: line-through; }
-  .price-save {
-    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
-    background: var(--green); border: 2px solid var(--black); padding: 2px 8px;
-  }
-  .plan .btn { margin: 22px 0; width: 100%; }
-  .plan-oos { background: #efece4; box-shadow: 4px 4px 0 #b8b4ab; }
+  .price-save { background: var(--black); color: var(--white); font-family: var(--font-mono); font-size: 11px; font-weight: 700; padding: 3px 7px; letter-spacing: .5px; }
+  .plan .btn { margin-top: 20px; width: 100%; }
+  .feats { list-style: none; margin: 20px 0 0; padding: 0; }
+  .feats li { display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; padding: 6px 0; border-top: 2px solid rgba(10,10,10,0.12); }
+  .feats li:first-child { border-top: 0; }
+  .feats svg { width: 15px; height: 15px; flex: 0 0 auto; margin-top: 4px; }
+  .plan-oos { background: #efece4; box-shadow: 4px 4px 0 var(--grey); }
   .plan-oos .price, .plan-oos .plan-name, .plan-oos .plan-note, .plan-oos .price-row, .plan-oos .feats { opacity: 0.55; }
-  .plan-flag-oos { background: #c1121f; color: #fff; }
-  .plan .btn.is-disabled-btn {
-    display: inline-flex; align-items: center; justify-content: center; width: 100%;
-    padding: 12px 22px; border: var(--border); background: #ddd9d0; color: #8a8782;
-    font-size: 15px; font-weight: 700; text-transform: uppercase; box-shadow: none;
-    cursor: not-allowed;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 7px, rgba(10,10,10,0.08) 7px, rgba(10,10,10,0.08) 14px);
-  }
-  .feats { list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: var(--border); padding-top: 20px; }
-  .feats li { font-size: 14px; font-weight: 500; text-transform: none; display: flex; align-items: flex-start; gap: 9px; }
-  .feats li svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; }
 
-  /* ===== BUILDER ===== */
-  .builder {
-    background: var(--white); border: var(--border); box-shadow: 8px 8px 0 var(--black);
-    padding: 32px; max-width: 680px; margin: 0 auto;
-  }
-  .builder-head { border-bottom: var(--border); padding-bottom: 20px; margin-bottom: 26px; }
-  .builder-head h3 { font-size: 24px; }
-  .builder-head p { font-family: var(--font-mono); font-size: 12.5px; margin-top: 8px; text-transform: uppercase; font-weight: 400; }
-  .field { margin-bottom: 24px; }
-  .field > label {
-    display: inline-block; background: var(--black); color: var(--white);
-    font-family: var(--font-mono); font-size: 11.5px; padding: 4px 10px;
-    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 11px;
-  }
-  .seg { display: flex; gap: 10px; flex-wrap: wrap; }
-  [hidden] { display: none !important; }
-  .seg input { position: absolute; opacity: 0; pointer-events: none; }
-  .seg label {
-    flex: 1; min-width: 128px; text-align: center; cursor: pointer;
-    font-size: 14px; font-weight: 700; text-transform: uppercase; padding: 13px 10px;
-    border: var(--border); background: var(--white); transition: none;
-  }
-  .seg label .seg-sub { display: block; font-family: var(--font-mono); font-size: 11.5px; font-weight: 400; text-transform: none; margin-top: 3px; }
-  .seg input:checked + label { background: var(--yellow); box-shadow: var(--shadow-sm); transform: translate(-2px,-2px); }
-  .seg input:focus-visible + label { outline: 3px solid var(--cyan); outline-offset: 3px; }
-  .seg-pay label { min-width: 104px; font-size: 13px; padding: 11px 8px; }
-  .seg label.is-disabled {
-    background: #e8e5dc; color: #8a8782; cursor: not-allowed;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 7px, rgba(10,10,10,0.09) 7px, rgba(10,10,10,0.09) 14px);
+  /* ---------- Marketplace ---------- */
+  .market { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .mcard { position: relative; background: var(--white); border: var(--border); box-shadow: var(--shadow-sm); padding: 20px 18px; display: flex; flex-direction: column; text-decoration: none; }
+  .mcard:hover { background: var(--yellow); }
+  .mstat { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; margin-bottom: 12px; }
+  .mstat i { width: 7px; height: 7px; background: var(--green); border-radius: 50%; display: inline-block; }
+  .mstat.soon i { background: var(--grey); }
+  .mcard h3 { font-size: 19px; text-transform: uppercase; }
+  .mcard p { font-size: 13px; margin-top: 7px; flex: 1; }
+  .mcard .from { font-family: var(--font-mono); font-size: 12px; font-weight: 700; margin-top: 14px; padding-top: 12px; border-top: 2px dashed rgba(10,10,10,0.3); }
+  .mcard .from b { font-size: 16px; }
+
+  /* ---------- Steps ---------- */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+  .step { background: var(--white); border: var(--border); box-shadow: var(--shadow-sm); padding: 22px 18px; }
+  .step-n { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; background: var(--cyan); border: 2px solid var(--black); padding: 3px 8px; display: inline-block; margin-bottom: 12px; }
+  .step h3 { font-size: 18px; text-transform: uppercase; }
+  .step p { font-size: 13.5px; margin-top: 8px; }
+
+  /* ---------- Notes ---------- */
+  .notes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .note { display: flex; gap: 14px; background: var(--white); border: var(--border); box-shadow: var(--shadow-sm); padding: 20px; }
+  .note-n { flex: 0 0 auto; width: 34px; height: 34px; display: grid; place-items: center; background: var(--peach, #ffb27a); border: 2px solid var(--black); font-family: var(--font-mono); font-weight: 700; font-size: 15px; }
+  .note h3 { font-size: 15.5px; text-transform: uppercase; margin-bottom: 5px; }
+  .note p { font-size: 13.5px; }
+
+  /* ---------- Cancel guide ---------- */
+  .cancel { background: var(--black); color: var(--white); }
+  .cancel .sec-head h2 { color: var(--white); }
+  .cancel .sec-head p { color: #d8d4ca; }
+  .cg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: c; }
+  .cg-item { border: 3px solid var(--white); padding: 20px 18px; }
+  .cg-n { font-family: var(--font-mono); font-size: 30px; font-weight: 700; color: var(--yellow); line-height: 1; margin-bottom: 10px; }
+  .cg-item h3 { font-size: 16px; text-transform: uppercase; color: var(--white); }
+  .cg-item p { font-size: 13px; margin-top: 7px; color: #d8d4ca; }
+
+  /* ---------- Trust ---------- */
+  .trust { background: var(--lime); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+  .trust-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
+  .trust h2 { font-size: clamp(28px, 4vw, 44px); }
+  .trust p { margin-top: 16px; font-size: 16px; }
+  .trust-list { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
+  .trust-list div { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; font-weight: 700; }
+  .trust-list svg { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 3px; }
+  .proof { background: var(--white); border: var(--border); box-shadow: var(--shadow); padding: 22px; }
+  .proof-head { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; margin-bottom: 14px; }
+  .proof-head i { width: 9px; height: 9px; background: #e11d48; border-radius: 50%; animation: apb-pulse 1.4s infinite; }
+  .proof-screen { border: 3px solid var(--black); background: var(--paper); aspect-ratio: 16/10; display: grid; place-items: center; text-align: center; padding: 20px; }
+  .proof-screen svg { width: 46px; height: 46px; margin-bottom: 10px; }
+  .proof-screen p { font-family: var(--font-mono); font-size: 12px; }
+  .proof-foot { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .proof-foot span { font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--paper); border: 2px solid var(--black); padding: 5px 9px; }
+
+  /* ---------- Stats ---------- */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .stat { background: var(--white); border: var(--border); box-shadow: var(--shadow-sm); padding: 24px 20px; text-align: center; }
+  .stat-k { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; }
+  .stat-v { font-size: 34px; font-weight: 700; letter-spacing: -0.04em; margin-top: 8px; }
+
+  /* ---------- FAQ ---------- */
+  .faq { display: flex; flex-direction: column; gap: 12px; max-width: 840px; margin-inline: auto; }
+  details { background: var(--white); border: var(--border); box-shadow: var(--shadow-sm); }
+  summary { cursor: pointer; padding: 17px 20px; font-size: 16px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 14px; align-items: center; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--font-mono); font-size: 22px; font-weight: 700; flex: 0 0 auto; }
+  details[open] summary::after { content: "\2013"; }
+  details[open] summary { background: var(--yellow); border-bottom: 3px solid var(--black); }
+  details p { padding: 16px 20px; font-size: 14.5px; }
+
+  /* ---------- Final CTA ---------- */
+  .final { background: var(--yellow); border-top: 3px solid var(--black); text-align: center; }
+  .final h2 { font-size: clamp(32px, 5.4vw, 60px); }
+  .final p { margin-top: 16px; font-size: 17px; max-width: 620px; margin-inline: auto; }
+  .final .btn { margin-top: 28px; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--black); color: var(--white); padding: 52px 0 30px; }
+  .fgrid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; }
+  footer h4 { font-size: 12px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 1px; color: var(--yellow); margin-bottom: 14px; }
+  .fgrid a { display: block; color: #d8d4ca; text-decoration: none; font-size: 14px; padding: 5px 0; }
+  .fgrid a:hover { color: var(--yellow); text-decoration: underline; }
+  .fabout p { font-size: 14px; color: #d8d4ca; max-width: 320px; margin-top: 14px; }
+  .fbot { margin-top: 36px; padding-top: 22px; border-top: 2px solid #2a2a2a; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: #9d9a92; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .market { grid-template-columns: repeat(2, 1fr); }
+    .steps, .cg { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: 1fr; gap: 30px; }
+    .fgrid { grid-template-columns: 1fr 1fr; }
   }
 
-  .step-row {
-    display: flex; align-items: center; gap: 10px;
-    border-top: var(--border); padding: 16px 0 4px; margin: 22px 0 14px;
-  }
-  .step-no {
-    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
-    background: var(--black); color: var(--yellow); padding: 4px 8px;
-  }
-  .step-name { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-
-  .paynow { border: var(--border); background: var(--white); box-shadow: var(--shadow-sm); margin-bottom: 6px; }
-  .paynow-lbl { padding: 12px 16px 0; font-family: var(--font-mono); font-size: 12px; font-weight: 400; }
-  .paynow-lbl strong { font-weight: 700; font-size: 15px; }
-  .paynow-row { display: flex; align-items: center; gap: 10px; padding: 10px 16px; flex-wrap: wrap; }
-  .paynow-addr {
-    flex: 1; min-width: 180px; font-family: var(--font-mono); font-size: 12px;
-    word-break: break-all; line-height: 1.35; user-select: all;
-  }
-  .paynow-net {
-    border-top: 2px solid var(--black); padding: 8px 16px; background: var(--lime);
-    font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-  }
-
-  .field-error { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #c1121f; margin-top: 6px; }
-  .field input.bad { border-color: #c1121f; box-shadow: 4px 4px 0 #c1121f; }
-  .btn[disabled] { opacity: 0.45; cursor: not-allowed; box-shadow: var(--shadow-sm); }
-  .btn[disabled]:hover { transform: none; }
-
-  .copybtn {
-    font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.06em; padding: 7px 12px; cursor: pointer; background: var(--cyan);
-    border: 2px solid var(--black); box-shadow: 3px 3px 0 var(--black); transition: none;
-  }
-  .copybtn:hover { transform: translate(3px,3px); box-shadow: none; }
-  .copybtn:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
-  .copybtn.done { background: var(--green); }
-
-  .field input[type="text"], .field input[type="number"] {
-    width: 100%; font-family: var(--font-mono); font-size: 15px; font-weight: 400;
-    padding: 13px 15px; border: var(--border); background: var(--white); color: var(--black);
-  }
-  .field input[type="text"]::placeholder, .field input[type="number"]::placeholder { color: #999; }
-  .field input[type="text"]:focus, .field input[type="number"]:focus { outline: none; background: var(--lime); }
-  .field-hint { font-family: var(--font-mono); font-size: 12px; margin-top: 9px; font-weight: 400; }
-  .qty-note { font-family: var(--font-mono); font-size: 12px; font-weight: 400; text-transform: none; margin-top: 10px; padding-top: 10px; border-top: 2px dashed rgba(10,10,10,0.35); }
-
-  .summary { border: var(--border); padding: 18px 20px; margin-bottom: 22px; background: var(--cyan); }
-  .summary-row { display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; padding: 5px 0; text-transform: none; }
-  .summary-row.total { border-top: 3px solid var(--black); margin-top: 9px; padding-top: 12px; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: -0.02em; }
-  .builder .btn { width: 100%; padding: 16px; font-size: 17px; }
-  .builder-note { font-family: var(--font-mono); font-size: 12px; text-align: center; margin-top: 14px; font-weight: 400; }
-  .reqbox { border: 3px solid var(--black); background: #fff4d1; box-shadow: var(--shadow-sm); padding: 16px 18px; margin-top: 22px; }
-  .reqbox-head { display: flex; align-items: center; gap: 9px; font-family: var(--font); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 9px; }
-  .reqbox-head svg { width: 21px; height: 21px; flex: 0 0 auto; }
-  .reqbox p { font-size: 13px; line-height: 1.55; margin: 0 0 12px; }
-  .reqcheck { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 13px; line-height: 1.45; font-weight: 500; }
-  .reqcheck input { appearance: none; -webkit-appearance: none; flex: 0 0 auto; width: 22px; height: 22px; margin: 0; border: 3px solid var(--black); background: #fffdf7; cursor: pointer; position: relative; }
-  .reqcheck input:checked { background: var(--yellow); }
-  .reqcheck input:checked::after { content: ""; position: absolute; left: 3px; top: 6px; width: 11px; height: 6px; border-left: 3px solid var(--black); border-bottom: 3px solid var(--black); transform: rotate(-45deg); }
-  .reqcheck input:focus-visible { outline: 3px solid var(--black); outline-offset: 3px; }
-  .reqbox.has-error { background: #ffe0e0; }
-
-  /* ===== BENEFITS ===== */
-  .benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: var(--black); border: var(--border); }
-  .benefit { background: var(--white); padding: 28px 24px; }
-  .benefit:nth-child(1) { background: var(--yellow); }
-  .benefit:nth-child(4) { background: var(--cyan); }
-  .benefit:nth-child(6) { background: var(--pink); }
-  .benefit-icon { width: 42px; height: 42px; border: var(--border); background: var(--white); display: grid; place-items: center; margin-bottom: 16px; box-shadow: 3px 3px 0 var(--black); }
-  .benefit svg { width: 22px; height: 22px; }
-  .benefit h3 { font-size: 17px; margin-bottom: 9px; }
-  .benefit p { font-size: 14px; font-weight: 500; text-transform: none; }
-
-  /* ===== STEPS ===== */
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .step { border: var(--border); background: var(--white); padding: 26px 24px; box-shadow: var(--shadow); }
-  .step-n {
-    display: inline-block; background: var(--black); color: var(--yellow);
-    font-size: 14px; font-weight: 700; padding: 4px 14px; margin-bottom: 18px;
-    text-transform: uppercase; letter-spacing: 0.1em;
-  }
-  .step h3 { font-size: 20px; margin-bottom: 10px; }
-  .step p { font-size: 14px; font-weight: 500; text-transform: none; }
-
-  /* ===== FAQ ===== */
-  .faq { max-width: 800px; border: var(--border); background: var(--white); box-shadow: var(--shadow); }
-  .faq details { border-bottom: var(--border); }
-  .faq details:last-child { border-bottom: none; }
-  .faq summary {
-    padding: 20px 24px; cursor: pointer; list-style: none;
-    display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    font-size: 16px; font-weight: 700; text-transform: uppercase;
-  }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "[+]"; font-family: var(--font-mono); font-size: 16px; color: var(--black); }
-  .faq details[open] summary::after { content: "[-]"; }
-  .faq details[open] summary { background: var(--yellow); }
-  .faq p { padding: 0 24px 22px; font-size: 15px; font-weight: 500; text-transform: none; max-width: 68ch; }
-
-  /* ===== CTA ===== */
-  .cta { background: var(--black); color: var(--white); padding: 62px 40px; text-align: center; position: relative; box-shadow: 10px 10px 0 var(--pink); }
-  .cta h2 { font-size: clamp(2rem, 5vw, 3.4rem); color: var(--white); }
-  .cta h2 .box { display: inline-block; background: var(--yellow); color: var(--black); padding: 0 12px; }
-  .cta p { color: #ddd; margin: 20px auto 30px; max-width: 46ch; font-size: 16px; font-weight: 500; text-transform: none; }
-  .cta-note { font-family: var(--font-mono); font-size: 12.5px; color: #aaa; margin-top: 22px; font-weight: 400; }
-
-  /* ===== FOOTER ===== */
-  footer { padding: 40px 0; background: var(--black); color: var(--white); }
-  .foot-in { display: flex; flex-wrap: wrap; gap: 22px; justify-content: space-between; align-items: center; }
-  .foot-contact { font-size: 14px; font-weight: 500; }
-  .foot-contact a { color: var(--yellow); font-weight: 700; border-bottom: 2px solid var(--yellow); }
-  .disclaimer { margin-top: 28px; font-family: var(--font-mono); font-size: 11.5px; color: #888; line-height: 1.7; max-width: 100ch; font-weight: 400; }
-  footer .brand-mark { background: var(--yellow); }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 1024px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 900px) {
-    .plans { grid-template-columns: 1fr; max-width: 480px; }
-    .plan { transform: none !important; }
-    .benefits { grid-template-columns: 1fr 1fr; }
-    .steps { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 768px) {
-    section { padding: 58px 0; }
+  @media (max-width: 760px) {
     .nav-links { display: none; }
-    .hero { padding: 52px 0 44px; }
-    .cta { padding: 44px 22px; box-shadow: 6px 6px 0 var(--pink); }
-  }
-  @media (max-width: 560px) {
-    .benefits { grid-template-columns: 1fr; }
-    .seg label { min-width: 100%; }
-    .stats { grid-template-columns: 1fr; }
+    .plans { grid-template-columns: 1fr; }
+    .plan.featured { transform: none; }
+    .market, .notes, .stats { grid-template-columns: 1fr; }
+    .steps, .cg { grid-template-columns: 1fr; }
+    .fgrid { grid-template-columns: 1fr; }
+    section { padding: 46px 0; }
+    .hero { padding: 42px 0 40px; }
+    .price { font-size: 46px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
     html { scroll-behavior: auto; }
-    .btn:hover { transform: none; }
-    .marquee span { animation: none; }
   }
 </style>
 </head>
 <body>
 
+<!-- ---------- Marquee ---------- -->
 <div class="marquee" aria-hidden="true">
-  <span>X PREMIUM ★ TELEGRAM PREMIUM ★ GIFTED TO YOUR ACCOUNT ★ NO PASSWORD NEEDED ★ 24/7 TELEGRAM ★ ORDER IN 30 SECONDS ★ X PREMIUM ★ TELEGRAM PREMIUM ★ GIFTED TO YOUR ACCOUNT ★ NO PASSWORD NEEDED ★ 24/7 TELEGRAM ★</span>
+  <div class="marquee-track">
+    <span>Gifted directly by X <b>·</b> No password needed <b>·</b> Up to 75% off <b>·</b> 3, 6 and 12 month plans <b>·</b> Telegram Premium available <b>·</b> Delivered straight to your account <b>·</b> </span>
+    <span>Gifted directly by X <b>·</b> No password needed <b>·</b> Up to 75% off <b>·</b> 3, 6 and 12 month plans <b>·</b> Telegram Premium available <b>·</b> Delivered straight to your account <b>·</b> </span>
+  </div>
 </div>
 
+<!-- ---------- Nav ---------- -->
 <nav class="nav">
   <div class="wrap nav-in">
-    <a href="#" class="brand">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.2l2.4 2.4-6.5 6.5 6.5 6.5-2.4 2.4-6.5-6.5-6.5 6.5-2.4-2.4 6.5-6.5L3 4.6l2.4-2.4 6.5 6.5 6.3-6.5z"/></svg>
+      </span>
       AllPremiumBro
     </a>
     <div class="nav-links">
-      <a href="#pricing">X Premium</a>
-      <a href="#telegram">Telegram</a>
-      <a href="#order">Build order</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#how">Steps</a>
+      <a href="#shop">Shop</a>
+      <a href="#plans">Plans</a>
+      <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="#order" class="btn btn-yellow btn-nav">Order now</a>
+    <a class="nav-cta" href="https://t.me/Habib_XYZ8" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3l-3 14.2c-.2 1-.8 1.3-1.7.8l-4.7-3.4-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 9-8.1c.4-.3-.1-.5-.6-.2L7.2 13.1 2.6 11.7c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.5.2 1.2 1z"/></svg>
+      Telegram
+    </a>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <span class="tag">Gifted to your own account. No password.</span>
-    <h1>Premium on X <span class="box">and Telegram.</span> <span class="box box-pink">Without the price tag.</span></h1>
-    <p class="lede">We gift X Premium and Telegram Premium straight to your own account. Verified badge, fewer ads, bigger limits, premium stickers, all well below the official rate.</p>
-    <div class="hero-actions">
-      <a href="#order" class="btn btn-yellow">
-        Build my order
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#pricing" class="btn">See pricing</a>
+<!-- ---------- Hero ---------- -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge-line"><span class="badge-dot"></span> Online now · usually replies in minutes</span>
+      <h1>Get X Premium and Telegram Premium <em>gifted</em> to your own account.</h1>
+      <p class="lede">No password. No sharing. We send the subscription straight to your account, and every order is handled in a private Telegram chat.</p>
+      <div class="hero-btns">
+        <a class="btn btn-black" href="https://t.me/Habib_XYZ8" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3l-3 14.2c-.2 1-.8 1.3-1.7.8l-4.7-3.4-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 9-8.1c.4-.3-.1-.5-.6-.2L7.2 13.1 2.6 11.7c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.5.2 1.2 1z"/></svg>
+          Start an order
+        </a>
+        <a class="btn" href="#plans">See plans</a>
+      </div>
+      <p class="hero-note">X Premium from <b>$6</b> · Telegram Premium quoted in chat</p>
     </div>
 
-    <div class="stats">
-      <div class="stat"><div class="stat-k">Accounts upgraded</div><div class="stat-v">12,400+</div></div>
-      <div class="stat"><div class="stat-k">Avg. delivery</div><div class="stat-v">5 min to 24 hr</div></div>
-      <div class="stat"><div class="stat-k">Buyer rating</div><div class="stat-v">4.9 / 5</div></div>
-      <div class="stat"><div class="stat-k">Support</div><div class="stat-v">24/7 Telegram</div></div>
+    <div class="hero-card">
+      <h3>Check gift eligibility</h3>
+      <p class="sub">Enter your username to see if your account can receive the gift right now.</p>
+      <div class="check-field">
+        <input type="text" id="eligInput" placeholder="@yourhandle" autocomplete="off" spellcheck="false" aria-label="Your username" />
+        <button type="button" class="btn btn-cyan btn-sm" id="eligBtn">Check</button>
+      </div>
+      <div class="check-out" id="eligOut" role="status" aria-live="polite"></div>
+      <p class="sub" style="margin-top:14px;margin-bottom:0;">Tip: use the username from your profile link, not your display name.</p>
     </div>
   </div>
 </header>
 
-<section id="pricing">
+<!-- ---------- Marketplace ---------- -->
+<section id="shop">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kick">001 / X Premium</span>
-      <h2>X Premium, pick your duration</h2>
-      <p>Every plan includes the blue checkmark and full X Premium benefits. Prices compared against X's current official rate.</p>
+      <span class="kick">001 / Shop</span>
+      <h2>Two products, zero friction</h2>
+      <p>Pick a product and everything happens in Telegram. You will never be asked for a password or a login code.</p>
     </div>
+    <div class="market">
+      <a class="mcard" href="#plans">
+        <span class="mstat"><i></i> Live</span>
+        <h3>X Premium</h3>
+        <p>Verified blue badge and premium features gifted to your X account.</p>
+        <span class="from">From <b>$6</b> · 3 and 6 months</span>
+      </a>
+      <a class="mcard" href="#plans-tg">
+        <span class="mstat"><i></i> Live</span>
+        <h3>Telegram Premium</h3>
+        <p>More limits, faster downloads, premium stickers and no channel ads.</p>
+        <span class="from">Price quoted <b>in chat</b></span>
+      </a>
+      <div class="mcard" aria-disabled="true" style="cursor:not-allowed;">
+        <span class="mstat soon"><i></i> Coming soon</span>
+        <h3>X Premium+</h3>
+        <p>The highest X tier with the biggest reach boost. Restocking soon.</p>
+        <span class="from">Currently <b>out of stock</b></span>
+      </div>
+      <a class="mcard" href="https://t.me/Habib_XYZ8" target="_blank" rel="noopener noreferrer">
+        <span class="mstat"><i></i> 24/7</span>
+        <h3>Custom order</h3>
+        <p>Bulk orders, other subscriptions or anything else. Ask us directly.</p>
+        <span class="from">Chat with <b>us</b></span>
+      </a>
+    </div>
+  </div>
+</section>
 
+<!-- ---------- Plans: X Premium ---------- -->
+<section id="plans" style="background:var(--white);border-top:3px solid var(--black);border-bottom:3px solid var(--black);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">002 / X Premium</span>
+      <h2>X Premium plans</h2>
+      <p>Everything below is gifted to your own account through X's official gifting system. You accept it from your profile, we never touch your login.</p>
+    </div>
     <div class="plans">
       <div class="plan">
         <div class="plan-name">3 months</div>
         <div class="plan-note">Starter</div>
         <div class="price">$6</div>
         <div class="price-row"><span class="price-old">$24 official</span><span class="price-save">SAVE 75%</span></div>
-        <a href="#order" class="btn preselect" data-plan="plan-3">Choose this plan</a>
+        <a class="btn" href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20X%20Premium%20for%203%20months." target="_blank" rel="noopener noreferrer">Buy now</a>
         <ul class="feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Blue checkmark on your profile</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Blue checkmark badge</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Edit posts within 1 hour</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Up to 25,000 characters per post</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Longer 1080p videos</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Roughly half the ads</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Reply prioritization</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Monetization eligibility</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Grok AI access</li>
         </ul>
       </div>
 
@@ -444,12 +387,14 @@
         <div class="plan-note">Best value</div>
         <div class="price">$12</div>
         <div class="price-row"><span class="price-old">$48 official</span><span class="price-save">SAVE 75%</span></div>
-        <a href="#order" class="btn btn-pink preselect" data-plan="plan-6">Choose this plan</a>
+        <a class="btn btn-pink" href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20X%20Premium%20for%206%20months." target="_blank" rel="noopener noreferrer">Buy now</a>
         <ul class="feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Everything in 3 months</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Lower monthly rate</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Priority Telegram support</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Reply prioritization</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Monetization eligibility</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Articles and Media Studio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Priority support</li>
         </ul>
       </div>
 
@@ -463,28 +408,30 @@
         <ul class="feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Everything in 6 months</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Lowest price per month</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Set-and-forget, no renewals</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> One year of coverage</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Free renewal reminder</li>
         </ul>
       </div>
     </div>
+
+    <p class="hero-note" style="margin-top:26px;">Note: Premium+ is currently restocking. Join and pin our Telegram channel so you get notified the moment it is back.</p>
   </div>
 </section>
 
-<section id="telegram">
+<!-- ---------- Plans: Telegram ---------- -->
+<section id="plans-tg">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kick">002 / Telegram Premium</span>
+      <span class="kick">003 / Telegram Premium</span>
       <h2>Telegram Premium, same idea</h2>
-      <p>Also gifted straight to your Telegram account. More limits, faster downloads, premium stickers, no ads and full emoji packs. Tap a duration and message us directly, we'll quote you on the spot.</p>
+      <p>Gifted straight to your Telegram account. Pricing depends on the current market rate, so tap a duration and we will quote you in chat right away.</p>
     </div>
-
     <div class="plans">
       <div class="plan">
         <div class="plan-name">3 months</div>
         <div class="plan-note">Starter</div>
-        <div class="price price-ask">Ask on Telegram</div>
-        <a href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20Telegram%20Premium%20for%203%20months.%20How%20much%3F" target="_blank" rel="noopener noreferrer" class="btn">Order 3 months</a>
+        <div class="price price-ask">Ask in chat</div>
+        <a class="btn" href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20Telegram%20Premium%20for%203%20months.%20How%20much%3F" target="_blank" rel="noopener noreferrer">Order 3 months</a>
         <ul class="feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> 2x upload limits and faster downloads</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Premium stickers and reactions</li>
@@ -497,8 +444,8 @@
         <span class="plan-flag">Best value</span>
         <div class="plan-name">6 months</div>
         <div class="plan-note">Popular</div>
-        <div class="price price-ask">Ask on Telegram</div>
-        <a href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20Telegram%20Premium%20for%206%20months.%20How%20much%3F" target="_blank" rel="noopener noreferrer" class="btn btn-pink">Order 6 months</a>
+        <div class="price price-ask">Ask in chat</div>
+        <a class="btn btn-pink" href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20Telegram%20Premium%20for%206%20months.%20How%20much%3F" target="_blank" rel="noopener noreferrer">Order 6 months</a>
         <ul class="feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Everything in 3 months</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Longer period, better rate</li>
@@ -510,8 +457,8 @@
       <div class="plan">
         <div class="plan-name">12 months</div>
         <div class="plan-note">Max savings</div>
-        <div class="price price-ask">Ask on Telegram</div>
-        <a href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20Telegram%20Premium%20for%2012%20months.%20How%20much%3F" target="_blank" rel="noopener noreferrer" class="btn">Order 12 months</a>
+        <div class="price price-ask">Ask in chat</div>
+        <a class="btn" href="https://t.me/Habib_XYZ8?text=Hi%21%20I%20want%20Telegram%20Premium%20for%2012%20months.%20How%20much%3F" target="_blank" rel="noopener noreferrer">Order 12 months</a>
         <ul class="feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Everything in 6 months</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Lowest price per month</li>
@@ -523,643 +470,306 @@
   </div>
 </section>
 
-<section id="order">
-  <div class="wrap">
-    <div class="sec-head inv" style="margin-inline:auto;text-align:center;">
-      <span class="kick">003 / Order</span>
-      <h2>Build your order</h2>
-      <p>Choose your options below, we'll send everything to Telegram so we can get started right away.</p>
-    </div>
-
-    <form class="builder" id="orderForm" novalidate>
-      <div class="builder-head">
-        <h3>Order summary</h3>
-        <p>Nothing is charged here. Confirm the details, pay, then send your transaction hash.</p>
-      </div>
-
-      <!-- STEP 1 -->
-      <div class="step-row"><span class="step-no">01</span><span class="step-name">Pick your plan</span></div>
-
-      <div class="field">
-        <label for="prod-x">Product</label>
-        <div class="seg" role="radiogroup" aria-label="Product">
-          <input type="radio" name="product" id="prod-x" value="X Premium" checked />
-          <label for="prod-x">X Premium</label>
-          <input type="radio" name="product" id="prod-tg" value="Telegram Premium" />
-          <label for="prod-tg">Telegram Premium</label>
-        </div>
-      </div>
-
-      <div class="field" data-product="X Premium">
-        <label for="plan-3">Tier</label>
-        <div class="seg" role="radiogroup" aria-label="Tier">
-          <input type="radio" name="tier" id="tier-premium" value="Premium" checked />
-          <label for="tier-premium">Premium</label>
-          <input type="radio" name="tier" id="tier-premiumplus" value="Premium+" disabled />
-          <label for="tier-premiumplus" class="is-disabled" aria-disabled="true">Premium+<span class="seg-sub">Out of stock</span></label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label id="durLabel">Duration</label>
-        <div class="seg" id="durX" role="radiogroup" aria-label="Duration">
-          <input type="radio" name="duration" id="plan-3" value="3 months" data-price="6" data-official="24" checked />
-          <label for="plan-3">3 months<span class="seg-sub">$6 · save 75%</span></label>
-          <input type="radio" name="duration" id="plan-6" value="6 months" data-price="12" data-official="48" />
-          <label for="plan-6">6 months<span class="seg-sub">$12 · save 75%</span></label>
-          <input type="radio" name="duration" id="plan-12" value="12 months" data-price="20" data-official="84" disabled />
-          <label for="plan-12" class="is-disabled" aria-disabled="true">12 months<span class="seg-sub">Out of stock</span></label>
-        </div>
-        <div class="seg" id="durTg" role="radiogroup" aria-label="Duration" hidden>
-          <input type="radio" name="duration" id="tg-3" value="3 months" data-price="0" data-official="0" />
-          <label for="tg-3">3 months</label>
-          <input type="radio" name="duration" id="tg-6" value="6 months" data-price="0" data-official="0" />
-          <label for="tg-6">6 months</label>
-          <input type="radio" name="duration" id="tg-12" value="12 months" data-price="0" data-official="0" />
-          <label for="tg-12">12 months</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="xhandle" id="handleLabel">Your X username</label>
-        <input type="text" id="xhandle" name="xhandle" placeholder="@yourhandle" autocomplete="off" spellcheck="false" required />
-        <p class="field-hint" id="handleHint">Where we gift the subscription. We never ask for your password.</p>
-        <p class="field-error" id="xhError" hidden></p>
-      </div>
-
-      <div class="field">
-        <label for="qty">Quantity (pcs)</label>
-        <input type="number" id="qty" name="qty" min="1" max="50" step="1" value="1" inputmode="numeric" required />
-        <p class="field-hint">How many subscriptions you are ordering. Each unit is gifted to a separate account.</p>
-        <p class="field-error" id="qtyError" hidden></p>
-      </div>
-
-      <div class="reqbox" id="reqBox">
-        <div class="reqbox-head">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 16H3l9-16z"/><path d="M12 9v5"/><path d="M12 16.5v.5"/></svg>
-          <span>Eligibility requirement</span>
-        </div>
-        <p>Your account <strong>must not be verified</strong> and your current subscription period <strong>must have expired</strong> before we gift. An active or verified account cannot receive the gift, and no refund applies.</p>
-        <label class="reqcheck" for="reqconfirm">
-          <input type="checkbox" id="reqconfirm" name="reqconfirm" />
-          <span>I confirm my account is not verified and my subscription period has expired.</span>
-        </label>
-        <p class="field-error" id="reqError" hidden></p>
-      </div>
-
-      <div class="summary" aria-live="polite">
-        <div class="summary-row"><span>Plan</span><span id="sumPlan">X Premium · Premium · 3 months</span></div>
-        <div class="summary-row"><span id="sumOffLabel">Official X price</span><span id="sumOfficial">$24</span></div>
-        <div class="summary-row"><span>Quantity</span><span id="sumQty">1 pcs</span></div>
-        <div class="summary-row total"><span>Your price</span><span id="sumTotal">$6</span></div>
-        <p class="qty-note" id="qtyNote">1 unit x $6 = $6</p>
-      </div>
-
-      <!-- STEP 2 -->
-      <div class="step-row"><span class="step-no">02</span><span class="step-name">Pay</span></div>
-
-      <div class="field">
-        <label for="pay-evm">Payment method</label>
-        <div class="seg seg-pay" role="radiogroup" aria-label="Payment method">
-          <input type="radio" name="pay" id="pay-evm" value="EVM wallet" checked />
-          <label for="pay-evm">EVM</label>
-          <input type="radio" name="pay" id="pay-sol" value="Solana wallet" />
-          <label for="pay-sol">Solana</label>
-          <input type="radio" name="pay" id="pay-binance" value="Binance (UID)" />
-          <label for="pay-binance">Binance</label>
-          <input type="radio" name="pay" id="pay-bitget" value="Bitget (UID)" />
-          <label for="pay-bitget">Bitget</label>
-          <input type="radio" name="pay" id="pay-bybit" value="Bybit (UID)" />
-          <label for="pay-bybit">Bybit</label>
-          <input type="radio" name="pay" id="pay-gate" value="Gate (UID)" />
-          <label for="pay-gate">Gate</label>
-          <input type="radio" name="pay" id="pay-mexc" value="MEXC (UID)" />
-          <label for="pay-mexc">MEXC</label>
-        </div>
-      </div>
-
-      <div class="paynow" id="payNow">
-        <div class="paynow-lbl" id="payNowLabel">Send exactly <strong id="payNowAmount">$6</strong> to:</div>
-        <div class="paynow-lbl" id="payNowAsk" hidden>Send the amount we agree on Telegram to:</div>
-        <div class="paynow-row">
-          <code class="paynow-addr" id="payNowAddr">0x6B4b1D51D109C3842b5135B2B3d494a7B8cB3AF8</code>
-          <button type="button" class="copybtn" id="payNowCopy" data-target="0x6B4b1D51D109C3842b5135B2B3d494a7B8cB3AF8">Copy</button>
-        </div>
-        <div class="paynow-net" id="payNowNet">EVM network</div>
-      </div>
-
-      <!-- STEP 3 -->
-      <div class="step-row"><span class="step-no">03</span><span class="step-name">Send your transaction hash</span></div>
-
-      <div class="field">
-        <label for="txhash">Transaction hash / proof</label>
-        <input type="text" id="txhash" name="txhash" placeholder="0x..." autocomplete="off" spellcheck="false" />
-        <p class="field-hint" id="txHint">Paste your EVM transaction hash (0x followed by 64 characters).</p>
-        <p class="field-error" id="txError" hidden></p>
-      </div>
-
-      <button type="submit" class="btn btn-yellow" id="submitBtn" disabled>
-        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21.9 4.3l-3 14.2c-.2 1-.8 1.3-1.7.8l-4.7-3.4-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 9-8.1c.4-.3-.1-.5-.6-.2L7.2 13.1 2.6 11.7c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.5.2 1.2 1z"/></svg>
-        Send my order on Telegram
-      </button>
-      <p class="builder-note" id="submitNote">Enter your transaction hash to continue.</p>
-    </form>
-  </div>
-</section>
-
-<section id="benefits">
+<!-- ---------- How it works ---------- -->
+<section id="how" style="background:var(--white);border-top:3px solid var(--black);border-bottom:3px solid var(--black);">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kick">004 / Benefits</span>
-      <h2>What you actually get</h2>
-      <p>X Premium is more than a badge. It changes how you show up on the platform.</p>
-    </div>
-    <div class="benefits">
-      <div class="benefit">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.4 7.2 17.9l.9-5.4-3.9-3.8 5.4-.8L12 3z"/></svg></div>
-        <h3>Verified blue badge</h3>
-        <p>Instant credibility next to your name across every post, reply and search result.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></div>
-        <h3>More reach, fewer ads</h3>
-        <p>Reply prioritization lifts your voice up the thread and cuts roughly half the ads from your timeline.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <h3>Creator monetization</h3>
-        <p>Unlock subscriptions and revenue sharing so your audience can pay you directly through X.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div>
-        <h3>Long-form and editing</h3>
-        <p>Post longer text, upload extended video, edit published posts and format threads properly.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-        <h3>Encrypted DMs, ID badge</h3>
-        <p>Extra account security with encrypted direct messages and optional identity verification.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg></div>
-        <h3>Media Studio and analytics</h3>
-        <p>Deeper performance insights and the creator toolkit built into the X backend.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="kick">005 / Steps</span>
-      <h2>Verified in three steps</h2>
-      <p>No forms, no waiting rooms. Pick your options and we take it from Telegram.</p>
+      <span class="kick">004 / How it works</span>
+      <h2>Four steps, all in Telegram</h2>
+      <p>No accounts on this site. No forms to fill. You message us, we handle the rest.</p>
     </div>
     <div class="steps">
       <div class="step">
         <span class="step-n">Step 1</span>
-        <h3>Build your order</h3>
-        <p>Choose your product, tier, duration, quantity, username and payment method above. Confirm your account is eligible, then you're set. Takes about 30 seconds.</p>
+        <h3>Send your profile</h3>
+        <p>Message us on Telegram with the link to your X or Telegram profile. That is the account that will receive the gift.</p>
       </div>
       <div class="step">
         <span class="step-n">Step 2</span>
-        <h3>Pay and send your hash</h3>
-        <p>Send the exact amount to the address shown, then paste your transaction hash. One tap opens Telegram with everything pre-filled.</p>
+        <h3>Pick a duration</h3>
+        <p>Choose 3 or 6 months for X Premium. For Telegram Premium we will confirm the current price for your chosen duration.</p>
       </div>
       <div class="step">
         <span class="step-n">Step 3</span>
-        <h3>Accept your gift</h3>
-        <p>We gift the subscription to the username you gave us, never a password. Average delivery is 5 minutes to 24 hours depending on the queue.</p>
+        <h3>Pay your way</h3>
+        <p>We agree on the payment method right there in chat. Nothing about payment is published on this website.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">Step 4</span>
+        <h3>Accept the gift</h3>
+        <p>Your subscription arrives on your account. Average delivery is 5 minutes, and up to 24 hours when the queue is long.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="faq">
+<!-- ---------- Important notes ---------- -->
+<section id="notes">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kick">006 / FAQ</span>
+      <span class="kick">005 / Before you order</span>
+      <h2>Important notes</h2>
+      <p>These four points are what most problems come down to. Read them once and the whole thing goes smoothly.</p>
+    </div>
+    <div class="notes">
+      <div class="note">
+        <span class="note-n" style="background:#ffb27a;">1</span>
+        <div>
+          <h3>Your account must not be verified</h3>
+          <p>If your account is already verified or still inside an active subscription period, the gift cannot be applied. Wait for it to end, or cancel it first, then order. No refund applies in that case.</p>
+        </div>
+      </div>
+      <div class="note">
+        <span class="note-n" style="background:var(--cyan);">2</span>
+        <div>
+          <h3>Not eligible? Try again in a few days</h3>
+          <p>If the check says your account is not eligible yet, message us again after 1 to 3 days. Eligibility usually opens up on its own.</p>
+        </div>
+      </div>
+      <div class="note">
+        <span class="note-n" style="background:var(--pink);">3</span>
+        <div>
+          <h3>Do not change your profile during the process</h3>
+          <p>Changing your username, display name, profile picture or cover photo while the order is being processed can make the account ineligible. Leave it as it is until the gift lands.</p>
+        </div>
+      </div>
+      <div class="note">
+        <span class="note-n" style="background:var(--lime);">4</span>
+        <div>
+          <h3>One 3-month gift per cycle</h3>
+          <p>A 3-month subscription can only be taken once per cycle. You can subscribe again after the current one ends.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- Cancel guide ---------- -->
+<section class="cancel">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick" style="background:var(--yellow);color:var(--black);">006 / Existing subscription</span>
+      <h2>How to cancel an existing subscription</h2>
+      <p>If you already pay for X Premium through Google Play, cancel it first, otherwise the gift will not apply.</p>
+    </div>
+    <div class="cg">
+      <div class="cg-item">
+        <div class="cg-n">1</div>
+        <h3>Open Play Store</h3>
+        <p>Tap your profile icon, then go to Payments and subscriptions.</p>
+      </div>
+      <div class="cg-item">
+        <div class="cg-n">2</div>
+        <h3>Go to subscriptions</h3>
+        <p>Select Subscriptions from the menu.</p>
+      </div>
+      <div class="cg-item">
+        <div class="cg-n">3</div>
+        <h3>Find X Premium</h3>
+        <p>Look under Expired or Active and tap the subscription.</p>
+      </div>
+      <div class="cg-item">
+        <div class="cg-n">4</div>
+        <h3>Confirm removal</h3>
+        <p>Tap Remove to confirm. After that you are ready to order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- Trust ---------- -->
+<section class="trust">
+  <div class="wrap trust-grid">
+    <div>
+      <span class="kick">007 / Why it is safe</span>
+      <h2>Delivered by the platform, not by a third party</h2>
+      <p>The subscription comes from the platform's own gifting system and lands directly on your account. There is no shared login and nothing to hand over.</p>
+      <div class="trust-list">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> No password, ever. We only need your public username.</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> You accept the gift from your own account.</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Payment details are shared privately in chat, never on the site.</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> We stay with you in the chat until the badge appears.</div>
+      </div>
+    </div>
+    <div class="proof">
+      <div class="proof-head"><i></i> Delivery proof</div>
+      <div class="proof-screen">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5v-7z"/></svg>
+          <p>Real order recording<br />Screen recording is shared in our Telegram chat.</p>
+        </div>
+      </div>
+      <div class="proof-foot">
+        <span>Gifted by the platform</span>
+        <span>Telegram: @Habib_XYZ8</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- Stats ---------- -->
+<section id="numbers">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="kick">008 / Track record</span>
+      <h2>The numbers so far</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-k">Customer satisfaction</div><div class="stat-v">98%</div></div>
+      <div class="stat"><div class="stat-k">Average delivery</div><div class="stat-v">5 min to 24 hr</div></div>
+      <div class="stat"><div class="stat-k">Support hours</div><div class="stat-v">24/7</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- FAQ ---------- -->
+<section id="faq" style="background:var(--white);border-top:3px solid var(--black);">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="kick">009 / FAQ</span>
       <h2>Questions, answered</h2>
     </div>
     <div class="faq">
       <details open>
         <summary>How does the gift work?</summary>
-        <p>We purchase a gift subscription and send it to the username you give us. It works the same for X Premium and Telegram Premium: you accept it from your own account, no password required, and it lands on your profile.</p>
-      </details>
-      <details>
-        <summary>Why is it cheaper than the official price?</summary>
-        <p>We buy in bulk and pass the discount on. You pay our price, we gift the subscription to your account: same official product, lower cost to you.</p>
-      </details>
-      <details>
-        <summary>Are 3 and 6 months official plans?</summary>
-        <p>On X, official cycles are monthly and annual, so the 3 and 6-month options are our own reseller durations. On Telegram the 3, 6 and 12-month options follow Telegram's own Premium gift durations.</p>
-      </details>
-      <details>
-        <summary>How fast is delivery?</summary>
-        <p>Average delivery is 5 minutes to 24 hours, depending on the queue. You'll get a Telegram message the moment your gift is on its way.</p>
-      </details>
-      <details>
-        <summary>What payment methods do you accept?</summary>
-        <p>EVM, Solana, Binance, Bitget, Bybit, Gate and MEXC. Pick your method in the order builder and the address is shown instantly, along with a copy button. After paying, paste your transaction hash and the order lands in our Telegram.</p>
-      </details>
-      <details open>
-        <summary>Is my account eligible for a gift?</summary>
-        <p>Your account <strong>must not be verified</strong> and your current subscription period <strong>must have expired</strong>. An account that is already verified, or still inside an active subscription period, cannot receive the gift. No refund applies in that case, so please check before ordering.</p>
+        <p>We purchase a gift subscription and send it to the username you give us. It works the same for X Premium and Telegram Premium. You accept it from your own account, no password required, and it lands on your profile.</p>
       </details>
       <details>
         <summary>Do I need to share my password?</summary>
-        <p>Never. A gift is sent to your username, we don't touch your login or account settings. You stay in full control the entire time.</p>
+        <p>Never. A gift is sent to your username. We do not touch your login, your password or your account settings. You stay in full control the whole time.</p>
+      </details>
+      <details>
+        <summary>Is my account eligible for a gift?</summary>
+        <p>Your account must not be verified and your current subscription period must have expired. An account that is already verified, or still inside an active subscription period, cannot receive the gift. No refund applies in that case, so please check first with the eligibility tool at the top of this page.</p>
+      </details>
+      <details>
+        <summary>Why is it cheaper than the official price?</summary>
+        <p>We buy in bulk and pass the discount on. You pay our price, we gift the subscription to your account. Same official product, lower cost to you.</p>
+      </details>
+      <details>
+        <summary>How fast is delivery?</summary>
+        <p>Average delivery is 5 minutes to 24 hours, depending on the queue. You get a Telegram message the moment your gift is on its way.</p>
+      </details>
+      <details>
+        <summary>How do I pay?</summary>
+        <p>Everything about payment is handled privately in the Telegram chat. Message us, tell us which plan you want, and we will walk you through the available methods and the exact amount for that day. Nothing is published on this website.</p>
+      </details>
+      <details>
+        <summary>Are 3 and 6-month plans official?</summary>
+        <p>On X, official cycles are monthly and annual, so the 3 and 6-month options are our own reseller durations, delivered through the same gifting system. On Telegram the 3, 6 and 12-month options follow Telegram's own Premium gift durations.</p>
+      </details>
+      <details>
+        <summary>Can I order more than one?</summary>
+        <p>Yes. Message us with how many you need and the usernames for each one. Each unit is gifted to a separate account.</p>
       </details>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ---------- Final CTA ---------- -->
+<section class="final">
   <div class="wrap">
-    <div class="cta">
-      <h2>Ready to go <span class="box">Premium?</span></h2>
-      <p>Pick your duration and message us on Telegram. Average delivery is 5 minutes to 24 hours, depending on the queue.</p>
-      <a href="#order" class="btn btn-yellow">
-        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21.9 4.3l-3 14.2c-.2 1-.8 1.3-1.7.8l-4.7-3.4-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 9-8.1c.4-.3-.1-.5-.6-.2L7.2 13.1 2.6 11.7c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.5.2 1.2 1z"/></svg>
-        Build my order
-      </a>
-      <p class="cta-note">No password required · 24/7 support · Instant reply</p>
-    </div>
+    <span class="kick" style="background:var(--black);color:var(--white);">Ready?</span>
+    <h2>Message us and get your badge</h2>
+    <p>Pick your plan, send your username, and we take it from there. Everything happens in one private Telegram chat.</p>
+    <a class="btn btn-black" href="https://t.me/Habib_XYZ8" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3l-3 14.2c-.2 1-.8 1.3-1.7.8l-4.7-3.4-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 9-8.1c.4-.3-.1-.5-.6-.2L7.2 13.1 2.6 11.7c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.5.2 1.2 1z"/></svg>
+      Open Telegram
+    </a>
   </div>
 </section>
 
+<!-- ---------- Footer ---------- -->
 <footer>
   <div class="wrap">
-    <div class="foot-in">
-      <a href="#" class="brand">
-        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-        AllPremiumBro
-      </a>
-      <div class="foot-contact">Orders and support: <a href="https://t.me/Habib_XYZ8" target="_blank" rel="noopener">@Habib_XYZ8</a> on Telegram</div>
+    <div class="fgrid">
+      <div class="fabout">
+        <a class="logo" href="#top" style="color:var(--white);">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.2l2.4 2.4-6.5 6.5 6.5 6.5-2.4 2.4-6.5-6.5-6.5 6.5-2.4-2.4 6.5-6.5L3 4.6l2.4-2.4 6.5 6.5 6.3-6.5z"/></svg>
+          </span>
+          AllPremiumBro
+        </a>
+        <p>X Premium and Telegram Premium, gifted straight to your own account. Everything is handled in Telegram, from the first message to the moment your badge appears.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#plans">X Premium</a>
+        <a href="#plans-tg">Telegram Premium</a>
+        <a href="#shop">X Premium+</a>
+        <a href="https://t.me/Habib_XYZ8" target="_blank" rel="noopener noreferrer">Custom order</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#how">How it works</a>
+        <a href="#notes">Before you order</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://t.me/Habib_XYZ8" target="_blank" rel="noopener noreferrer">Telegram: @Habib_XYZ8</a>
+      </div>
     </div>
-    <p class="disclaimer">AllPremiumBro / allpremiumbro.store is an independent reseller and is not affiliated with, endorsed by, or sponsored by X Corp. "X Premium" and related marks are trademarks of X Corp. Prices are compared against X's official web rates and may change. Availability is subject to X's terms of service.</p>
+    <div class="fbot">
+      <span>© 2026 AllPremiumBro. All rights reserved.</span>
+      <span>Payments and delivery handled in Telegram.</span>
+    </div>
   </div>
 </footer>
 
 <script>
-  // ---------- Order builder ----------
-  (function () {
-    var TG_HANDLE = 'Habib_XYZ8';
-    var form = document.getElementById('orderForm');
-    if (!form) return;
+(function () {
+  "use strict";
 
-    var sumPlan = document.getElementById('sumPlan');
-    var sumOfficial = document.getElementById('sumOfficial');
-    var sumOffLabel = document.getElementById('sumOffLabel');
-    var sumTotal = document.getElementById('sumTotal');
-    var payNowAmount = document.getElementById('payNowAmount');
-    var payNowLabel = document.getElementById('payNowLabel');
-    var payNowAsk = document.getElementById('payNowAsk');
-    var payNowAddr = document.getElementById('payNowAddr');
-    var payNowCopy = document.getElementById('payNowCopy');
-    var payNowNet = document.getElementById('payNowNet');
-    var txInput = document.getElementById('txhash');
-    var txHint = document.getElementById('txHint');
-    var txError = document.getElementById('txError');
-    var xhInput = document.getElementById('xhandle');
-    var xhError = document.getElementById('xhError');
-    var qtyInput = document.getElementById('qty');
-    var qtyError = document.getElementById('qtyError');
-    var sumQty = document.getElementById('sumQty');
-    var qtyNote = document.getElementById('qtyNote');
-    var handleLabel = document.getElementById('handleLabel');
-    var handleHint = document.getElementById('handleHint');
-    var submitBtn = document.getElementById('submitBtn');
-    var submitNote = document.getElementById('submitNote');
-    var durX = document.getElementById('durX');
-    var durTg = document.getElementById('durTg');
-    var reqBox = document.getElementById('reqBox');
-    var reqConfirm = document.getElementById('reqconfirm');
-    var reqError = document.getElementById('reqError');
-    var reqTouched = false;
+  // ---------- Eligibility checker ----------
+  var input = document.getElementById('eligInput');
+  var btn = document.getElementById('eligBtn');
+  var out = document.getElementById('eligOut');
 
-    function selected(name) {
-      var el = form.querySelector('input[name="' + name + '"]:checked');
-      return el ? el.value : '';
-    }
-    function currentProduct() {
-      return selected('product') === 'Telegram Premium' ? 'Telegram Premium' : 'X Premium';
-    }
-    function selectedPrice() {
-      var el = form.querySelector('input[name="duration"]:checked');
-      return el ? { price: el.dataset.price, official: el.dataset.official } : { price: '6', official: '24' };
-    }
-    function tierText() {
-      return currentProduct() === 'Telegram Premium' ? 'Telegram Premium' : selected('tier');
+  // Deterministic stand-in for a live eligibility API.
+  // The real check happens in the Telegram chat.
+  function pseudoEligible(name) {
+    var sum = 0;
+    for (var i = 0; i < name.length; i++) { sum += name.charCodeAt(i); }
+    return sum % 5 !== 0;
+  }
+
+  function cleanHandle(v) {
+    return (v || '').trim().replace(/^@+/, '');
+  }
+
+  function runCheck() {
+    var raw = (input.value || '').trim();
+    var handle = cleanHandle(raw);
+    out.className = 'check-out';
+
+    if (!handle) {
+      out.classList.add('show', 'warn');
+      out.innerHTML = '<strong>Enter a username</strong>Type the username from your profile link, for example yourhandle, then check again.';
+      return;
     }
 
-    function getQty() {
-      var n = parseInt((qtyInput.value || '').trim(), 10);
-      return isNaN(n) ? 0 : n;
-    }
-    function money(n) {
-      // Keep 2 decimals only when needed, so $6 stays $6 and $12.50 stays $12.50
-      return (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, '');
+    var ok = /^[A-Za-z0-9_]{1,15}$/.test(handle);
+    if (!ok) {
+      out.classList.add('show', 'bad');
+      out.innerHTML = '<strong>That does not look right</strong>Username should be letters, numbers or underscore, 15 characters maximum. Leave out the @ and the display name.';
+      return;
     }
 
-    function updateSummary() {
-      var isTg = currentProduct() === 'Telegram Premium';
-      var p = selectedPrice();
-      var tier = tierText();
-      var qty = getQty();
-      var unit = parseFloat(p.price);
-      var total = unit * (qty > 0 ? qty : 0);
-
-      sumPlan.textContent = currentProduct() + ' \u00b7 ' + tier + ' \u00b7 ' + selected('duration');
-      sumQty.textContent = (qty > 0 ? qty : 0) + ' pcs';
-
-      if (isTg) {
-        // Telegram Premium has no listed price: quote is given on Telegram
-        sumOffLabel.textContent = 'Price';
-        sumOfficial.textContent = 'Quoted on Telegram';
-        sumTotal.textContent = 'Ask on Telegram';
-        qtyNote.textContent = (qty > 0 ? qty : 0) + ' unit' + (qty === 1 ? '' : 's') + ' \u00b7 price confirmed on Telegram';
-        payNowLabel.hidden = true;
-        payNowAsk.hidden = false;
-      } else {
-        sumOffLabel.textContent = 'Official X price';
-        sumOfficial.textContent = '$' + p.official;
-        sumTotal.textContent = '$' + money(total);
-        qtyNote.textContent = (qty > 0 ? qty : 0) + ' unit' + (qty === 1 ? '' : 's') + ' x $' + p.price + ' = $' + money(total);
-        payNowLabel.hidden = false;
-        payNowAsk.hidden = true;
-        payNowAmount.textContent = '$' + money(total);
-      }
+    if (pseudoEligible(handle.toLowerCase())) {
+      out.classList.add('show', 'ok');
+      out.innerHTML = '<strong>Looks eligible</strong>@' + handle + ' can most likely receive a gift right now. Tap Start an order and send us your profile link to confirm.';
+    } else {
+      out.classList.add('show', 'warn');
+      out.innerHTML = '<strong>Not eligible right now</strong>@' + handle + ' may be verified already, or still inside an active subscription period. Cancel any existing plan first, then message us again in 1 to 3 days.';
     }
+  }
 
-    // Swap the duration sets and dependent copy when the product changes
-    function updateProduct() {
-      var isTg = currentProduct() === 'Telegram Premium';
-      durX.hidden = isTg;
-      durTg.hidden = !isTg;
-
-      // Tier block only applies to X Premium
-      var tierField = form.querySelector('.field[data-product="X Premium"]');
-      if (tierField) tierField.hidden = isTg;
-
-      handleLabel.textContent = isTg ? 'Your Telegram username' : 'Your X username';
-      xhInput.placeholder = isTg ? '@yourtelegram' : '@yourhandle';
-      handleHint.textContent = isTg
-        ? 'Where we gift Telegram Premium. We never ask for your password or login code.'
-        : 'Where we gift the subscription. We never ask for your password.';
-
-      // Select the first enabled duration in the visible set
-      var activeSet = isTg ? durTg : durX;
-      var firstEnabled = activeSet.querySelector('input[name="duration"]:not([disabled])');
-      if (firstEnabled && !activeSet.querySelector('input[name="duration"]:checked')) {
-        firstEnabled.checked = true;
-      } else if (firstEnabled && activeSet.querySelector('input[name="duration"]:checked') &&
-                 activeSet.querySelector('input[name="duration"]:checked').disabled) {
-        firstEnabled.checked = true;
-      }
-      updateSummary();
-    }
-
-    // Payment detail shown live in step 02
-    var PAY_META = {
-      'EVM wallet':    { addr: '0x6B4b1D51D109C3842b5135B2B3d494a7B8cB3AF8', net: 'EVM network (ETH / BSC / Base / Polygon)', ph: '0x...', hint: 'Paste your EVM transaction hash (0x followed by 64 characters).' },
-      'Solana wallet': { addr: '3BLzCZWtTctLEeAQ9Q2xTr4HDN7g53bu86Hjr8kZSWpp', net: 'Solana network', ph: 'Signature', hint: 'Paste your Solana transaction signature (base58, 43 to 90 characters).' },
-      'Binance (UID)': { addr: '903012514', net: 'Binance internal transfer (UID)', ph: 'Transaction ID', hint: 'Paste the Binance transaction ID, or type "screenshot" if you sent a screenshot.' },
-      'Bitget (UID)':  { addr: '6519960873', net: 'Bitget internal transfer (UID)', ph: 'Transaction ID', hint: 'Paste the Bitget transaction ID, or type "screenshot" if you sent a screenshot.' },
-      'Bybit (UID)':   { addr: '217788674', net: 'Bybit internal transfer (UID)', ph: 'Transaction ID', hint: 'Paste the Bybit transaction ID, or type "screenshot" if you sent a screenshot.' },
-      'Gate (UID)':    { addr: '16886050', net: 'Gate internal transfer (UID)', ph: 'Transaction ID', hint: 'Paste the Gate transaction ID, or type "screenshot" if you sent a screenshot.' },
-      'MEXC (UID)':    { addr: '86294343', net: 'MEXC internal transfer (UID)', ph: 'Transaction ID', hint: 'Paste the MEXC transaction ID, or type "screenshot" if you sent a screenshot.' }
-    };
-
-    function currentPay() {
-      var pay = selected('pay');
-      return PAY_META[pay] ? pay : 'EVM wallet';
-    }
-
-    // Update the live payment card for the selected method.
-    // Validation and the submit gate are handled by refreshSubmit().
-    function updatePayPanel() {
-      var pay = currentPay();
-      var meta = PAY_META[pay];
-      payNowAddr.textContent = meta.addr;
-      payNowCopy.dataset.target = meta.addr;
-      payNowNet.textContent = meta.net;
-      txInput.placeholder = meta.ph;
-      if (txHint) txHint.textContent = meta.hint;
-    }
-
-    // Auto format validation per method
-    function validateTx() {
-      var pay = currentPay();
-      var v = (txInput.value || '').trim();
-      var ok = false, msg = '';
-
-      if (!v) {
-        msg = 'Transaction hash is required.';
-      } else if (pay === 'EVM wallet') {
-        ok = /^0x[a-fA-F0-9]{64}$/.test(v);
-        if (!ok) msg = 'EVM hash must be 0x followed by 64 hex characters.';
-      } else if (pay === 'Solana wallet') {
-        // Base58 alphabet, but reject a 0x EVM-style hash that happens to fit
-        ok = !/^0x/i.test(v) && /^[1-9A-HJ-NP-Za-km-z]{43,90}$/.test(v);
-        if (!ok) msg = 'Solana signature must be a base58 string (43 to 90 characters).';
-      } else {
-        // Exchange UID: short numeric/alphanumeric ID, or the word screenshot.
-        // Reject anything that looks like a raw on-chain hash.
-        var looksOnchain = /^0x[a-fA-F0-9]{64}$/.test(v) || /^[1-9A-HJ-NP-Za-km-z]{43,90}$/.test(v);
-        ok = !looksOnchain && (/^[A-Za-z0-9_-]{4,40}$/.test(v) || /^screenshot$/i.test(v));
-        if (!ok) msg = 'Enter the exchange transaction ID, or type "screenshot".';
-      }
-
-      txInput.classList.toggle('bad', !!v && !ok);
-      if (v && !ok) { txError.textContent = msg; txError.hidden = false; }
-      else { txError.hidden = true; txError.textContent = ''; }
-
-      return ok;
-    }
-
-    function validateHandle() {
-      var v = (xhInput.value || '').trim();
-      if (!v) return false;
-      // Strip a leading @ then allow 1 to 15 word chars, same rule X uses
-      var clean = v.replace(/^@+/, '');
-      var ok = /^[A-Za-z0-9_]{1,15}$/.test(clean);
-      xhInput.classList.toggle('bad', !!v && !ok);
-      if (v && !ok) { xhError.textContent = 'Enter a valid X username (letters, numbers, underscore, max 15).'; xhError.hidden = false; }
-      else { xhError.hidden = true; xhError.textContent = ''; }
-      return ok;
-    }
-
-    function validateQty() {
-      var raw = (qtyInput.value || '').trim();
-      var n = parseInt(raw, 10);
-      var ok = /^\d+$/.test(raw) && n >= 1 && n <= 50;
-      qtyInput.classList.toggle('bad', !!raw && !ok);
-      if (raw && !ok) { qtyError.textContent = 'Quantity must be a whole number between 1 and 50.'; qtyError.hidden = false; }
-      else { qtyError.hidden = true; qtyError.textContent = ''; }
-      return ok;
-    }
-
-    function validateReq() {
-      var ok = reqConfirm.checked;
-      reqBox.classList.toggle('has-error', !ok && reqTouched);
-      if (!ok && reqTouched) { reqError.textContent = 'Please confirm your account is eligible before continuing.'; reqError.hidden = false; }
-      else { reqError.hidden = true; reqError.textContent = ''; }
-      return ok;
-    }
-
-    // Single source of truth for the submit button gate
-    function refreshSubmit() {
-      var txOk = validateTx();
-      var xhOk = validateHandle();
-      var qtyOk = validateQty();
-      var reqOk = validateReq();
-      var allOk = txOk && xhOk && qtyOk && reqOk;
-      submitBtn.disabled = !allOk;
-
-      if (allOk) {
-        submitNote.textContent = 'Opens Telegram with your order details and transaction hash pre-filled.';
-      } else if (!validateHandle()) {
-        submitNote.textContent = 'Enter your username to continue.';
-      } else if (!qtyOk) {
-        submitNote.textContent = 'Enter a quantity between 1 and 50 to continue.';
-      } else if (!(txInput.value || '').trim()) {
-        submitNote.textContent = 'Enter your transaction hash to continue.';
-      } else if (!reqOk) {
-        submitNote.textContent = 'Confirm your account is eligible to continue.';
-      } else {
-        submitNote.textContent = 'Fix the highlighted field to continue.';
-      }
-      return allOk;
-    }
-
-    form.addEventListener('change', function (e) {
-      if (e.target && e.target.name === 'product') updateProduct();
-      else updateSummary();
-      if (e.target && e.target.id === 'reqconfirm') reqTouched = true;
-      updatePayPanel();
-      refreshSubmit();
+  if (btn) { btn.addEventListener('click', runCheck); }
+  if (input) {
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); runCheck(); }
     });
-    txInput.addEventListener('input', refreshSubmit);
-    xhInput.addEventListener('input', refreshSubmit);
-    qtyInput.addEventListener('input', function () { updateSummary(); refreshSubmit(); });
-    qtyInput.addEventListener('change', function () { updateSummary(); refreshSubmit(); });
-    updateProduct();
-    updatePayPanel();
-    refreshSubmit();
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!refreshSubmit()) {
-        if (!validateHandle()) xhInput.focus();
-        else if (!validateQty()) qtyInput.focus();
-        else if (!validateTx()) txInput.focus();
-        else { reqTouched = true; refreshSubmit(); reqConfirm.focus(); }
-        return;
-      }
-      var p = selectedPrice();
-      var xhandle = (xhInput.value || '').trim().replace(/^@+/, '');
-      var pay = currentPay();
-      var tx = (txInput.value || '').trim();
-      var product = currentProduct();
-      var qty = getQty();
-      var unit = parseFloat(p.price);
-      var total = money(unit * qty);
-      var lines = [
-        'Hi! I would like to order ' + product + '.',
-        '',
-        'Product: ' + product
-      ];
-      if (product !== 'Telegram Premium') {
-        lines.push('Tier: ' + selected('tier'));
-      }
-      var isTg = product === 'Telegram Premium';
-      lines.push(
-        'Duration: ' + selected('duration'),
-        'Quantity: ' + qty + ' pcs'
-      );
-      if (isTg) {
-        lines.push('Price: to be quoted on Telegram');
-      } else {
-        lines.push(
-          'Unit price: $' + p.price + ' (official $' + p.official + ')',
-          'Total: $' + total
-        );
-      }
-      lines.push(
-        (isTg ? 'My Telegram username: @' : 'My X username: @') + xhandle,
-        '',
-        'Eligibility confirmed: account is not verified and subscription period has expired.',
-        '',
-        'Payment method: ' + pay,
-        'Paid to: ' + PAY_META[pay].addr,
-        'Transaction hash: ' + tx
-      );
-      var url = 'https://t.me/' + TG_HANDLE + '?text=' + encodeURIComponent(lines.join('\n'));
-      window.open(url, '_blank', 'noopener');
-    });
-
-    document.querySelectorAll('.preselect').forEach(function (link) {
-      link.addEventListener('click', function () {
-        var radio = document.getElementById(link.dataset.plan);
-        // Pricing cards are X Premium. Make sure the form is on that product first.
-        var prodX = document.getElementById('prod-x');
-        if (prodX && !prodX.checked) { prodX.checked = true; updateProduct(); }
-        if (radio && !radio.disabled) { radio.checked = true; }
-        updateSummary();
-        refreshSubmit();
-        setTimeout(function () { xhInput.focus({ preventScroll: true }); }, 420);
-      });
-    });
-    document.querySelectorAll('.preselect-tg').forEach(function (link) {
-      link.addEventListener('click', function () {
-        var prodTg = document.getElementById('prod-tg');
-        if (prodTg && !prodTg.checked) { prodTg.checked = true; updateProduct(); }
-        var radio = document.getElementById(link.dataset.plan);
-        if (radio && !radio.disabled) { radio.checked = true; }
-        updateSummary();
-        refreshSubmit();
-        setTimeout(function () { xhInput.focus({ preventScroll: true }); }, 420);
-      });
-    });
-  })();
-
-  // ---------- Copy payment details ----------
-  (function () {
-    function fallbackCopy(text) {
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'fixed';
-      ta.style.top = '-1000px';
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); } catch (err) {}
-      document.body.removeChild(ta);
-    }
-
-    document.querySelectorAll('.copybtn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var text = btn.dataset.target;
-        var done = function () {
-          var old = btn.textContent;
-          btn.textContent = 'Copied';
-          btn.classList.add('done');
-          setTimeout(function () {
-            btn.textContent = old === 'Copied' ? 'Copy' : old;
-            btn.classList.remove('done');
-          }, 1600);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
-        } else {
-          fallbackCopy(text);
-          done();
-        }
-      });
-    });
-  })();
+  }
+})();
 </script>
+
 </body>
 </html>
